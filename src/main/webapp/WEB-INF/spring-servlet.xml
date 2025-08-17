@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+  <context:component-scan base-package="com.cleanair" />
+  <tx:annotation-driven/>
+
+  <!-- View Resolver like InventoryWeb -->
+  <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <property name="prefix" value="/WEB-INF/views/"/>
+    <property name="suffix" value=".jsp"/>
+  </bean>
+
+  <!-- DataSource (update URL/creds) -->
+  <bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <!-- InventoryWeb uses com.mysql.jdbc.Driver -->
+    <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+    <property name="url" value="jdbc:mysql://localhost:3306/airDB"/>
+    <property name="username" value="root"/>
+    <property name="password" value=""/>
+  </bean>
+
+  <!-- Hibernate SessionFactory (explicit annotatedClasses list like InventoryWeb) -->
+  <bean id="factory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+    <property name="dataSource" ref="ds"/>
+    <property name="annotatedClasses">
+      <list>
+        <value>com.cleanair.model.Citizen</value>
+        <value>com.cleanair.model.Authority</value>
+        <value>com.cleanair.model.PollutionReport</value>
+      </list>
+    </property>
+    <property name="hibernateProperties">
+      <props>
+        <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+        <prop key="hibernate.show_sql">true</prop>
+        <prop key="hibernate.hbm2ddl.auto">update</prop>
+      </props>
+    </property>
+  </bean>
+
+  <bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+    <property name="sessionFactory" ref="factory"/>
+  </bean>
+
+  <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+    <property name="sessionFactory" ref="factory"/>
+  </bean>
+</beans>
