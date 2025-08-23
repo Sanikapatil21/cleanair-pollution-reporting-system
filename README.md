@@ -57,24 +57,26 @@
 **Citizen Module**
 - Citizen Login Page
   
-  <img width="1343" height="615" alt="image" src="https://github.com/user-attachments/assets/10e4b59a-5e74-4317-83ea-4ff4661402ff" />
+  <img width="1312" height="598" alt="image" src="https://github.com/user-attachments/assets/0e74e887-f83c-4448-b06a-2abc4e38ce08" />
 
 - Pollution Report Form (with Image Upload 📷)
 
-<img width="1317" height="636" alt="image" src="https://github.com/user-attachments/assets/bf5c5571-eb6e-4bca-9895-5055b2403018" />
+  <img width="1229" height="649" alt="image" src="https://github.com/user-attachments/assets/1d68b615-2211-4d61-983c-20dda8da7698" />
 
 -Submitted Reports List (with image previews)
-<img width="1346" height="622" alt="image" src="https://github.com/user-attachments/assets/44a98bd0-b89d-4cd3-ab2d-f5f192eb4db6" />
+
+   <img width="1316" height="635" alt="image" src="https://github.com/user-attachments/assets/4c535d96-d833-457c-84f8-202f5dccebcc" />
 
 **Authority Module**
 
 -Authority Login Page
 
-<img width="1333" height="641" alt="image" src="https://github.com/user-attachments/assets/3fa8c001-9cfd-465c-8158-c0ba72a1a731" />
+  <img width="1312" height="613" alt="image" src="https://github.com/user-attachments/assets/2b20e743-647d-4ee3-aecd-6ccc6dcb49c7" />
 
 -Report Status Update Page
 
-<img width="1314" height="635" alt="image" src="https://github.com/user-attachments/assets/bd367b88-b953-45c8-a8ce-5d84e11d895e" />
+<img width="1320" height="638" alt="image" src="https://github.com/user-attachments/assets/8415335d-816f-4e6f-bd20-94a45d55c62d" />
+
 
 
 
