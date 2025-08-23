@@ -63,17 +63,17 @@
 
   <img width="1229" height="649" alt="image" src="https://github.com/user-attachments/assets/1d68b615-2211-4d61-983c-20dda8da7698" />
 
--Submitted Reports List (with image previews)
+- Submitted Reports List (with image previews)
 
    <img width="1316" height="635" alt="image" src="https://github.com/user-attachments/assets/4c535d96-d833-457c-84f8-202f5dccebcc" />
 
 **Authority Module**
 
--Authority Login Page
+- Authority Login Page
 
   <img width="1312" height="613" alt="image" src="https://github.com/user-attachments/assets/2b20e743-647d-4ee3-aecd-6ccc6dcb49c7" />
 
--Report Status Update Page
+- Report Status Update Page
 
 <img width="1320" height="638" alt="image" src="https://github.com/user-attachments/assets/8415335d-816f-4e6f-bd20-94a45d55c62d" />
 
