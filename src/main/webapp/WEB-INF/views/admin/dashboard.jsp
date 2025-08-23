@@ -13,7 +13,7 @@
 </head>
 <body class="bg-gray-50 font-[Inter]">
 
-    <!-- Navbar (same style as CleanAir homepage) -->
+    <!-- Navbar -->
     <nav class="flex justify-between items-center px-8 py-4 shadow" style="background-color:#0f766e;">
         <div class="flex items-center space-x-2">
             <div class="bg-white text-[#0f766e] px-2 py-1 rounded-lg font-bold">CA</div>
@@ -26,7 +26,7 @@
         </div>
     </nav>
 
-    <!-- Content (kept exactly same as your original) -->
+    <!-- Content -->
     <section class="p-8">
         <h2 class="text-2xl font-bold text-gray-800 mb-6">Recent Reports</h2>
 
@@ -40,6 +40,7 @@
                         <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Location</th>
                         <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Status</th>
                         <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Date</th>
+                        <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Image</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -53,11 +54,9 @@
                                 <span class="
                                     px-3 py-1 rounded-full text-xs font-medium
                                     <c:choose>
-                                        <c:when test='${r.status eq "pending"}'> bg-yellow-100 text-yellow-800</c:when>
-                                        <c:when test='${r.status eq "in progress"}'> bg-blue-100 text-blue-800</c:when>
-                                        <c:when test='${r.status eq "resolved"}'> bg-green-100 text-green-800</c:when>
-                                        <c:when test='${r.status eq "completed"}'> bg-emerald-100 text-emerald-800</c:when>
-                                        <c:when test='${r.status eq "urgent"}'> bg-red-100 text-red-800</c:when>
+                                        <c:when test='${r.status eq "NEW"}'> bg-yellow-100 text-yellow-800</c:when>
+                                        <c:when test='${r.status eq "IN_PROGRESS"}'> bg-blue-100 text-blue-800</c:when>
+                                        <c:when test='${r.status eq "ACTION_COMPLETE"}'> bg-green-100 text-green-800</c:when>
                                         <c:otherwise> bg-gray-100 text-gray-700</c:otherwise>
                                     </c:choose>
                                 ">
@@ -65,6 +64,20 @@
                                 </span>
                             </td>
                             <td class="px-6 py-3 text-sm text-gray-700">${r.date}</td>
+                            <td class="px-6 py-3 text-sm">
+                                <c:choose>
+                                    <c:when test="${not empty r.reportImage}">
+                                        <a href="${pageContext.request.contextPath}/uploads/${r.reportImage}" target="_blank">
+                                            <img src="${pageContext.request.contextPath}/uploads/${r.reportImage}"
+                                                 alt="Report Image"
+                                                 class="h-16 w-16 object-cover rounded shadow border hover:scale-105 transition"/>
+                                        </a>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <span class="text-xs text-gray-400">No Image</span>
+                                    </c:otherwise>
+                                </c:choose>
+                            </td>
                         </tr>
                     </c:forEach>
                 </tbody>
@@ -72,7 +85,7 @@
         </div>
     </section>
 
-    <!-- Footer (same as CleanAir homepage) -->
+    <!-- Footer -->
     <footer class="bg-gray-100 text-center py-6 mt-12">
         <p class="text-gray-600 text-sm">
             © 2024 CleanAir Pollution Reporting System. All rights reserved.

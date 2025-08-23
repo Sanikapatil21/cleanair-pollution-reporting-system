@@ -10,7 +10,7 @@
 </head>
 <body class="bg-gray-50 font-sans">
 
-    <!-- Tailwind Navbar -->
+    <!-- Navbar -->
     <nav class="flex justify-between items-center px-8 py-4 shadow bg-teal-700">
         <div class="flex items-center space-x-2">
             <div class="bg-white text-teal-700 px-2 py-1 rounded-lg font-bold">CA</div>
@@ -23,7 +23,7 @@
         </div>
     </nav>
 
-    <!-- Main Form Section -->
+    <!-- Main Section -->
     <div class="container mx-auto max-w-xl mt-10 px-4">
         <div class="bg-white rounded-2xl shadow border border-gray-200">
             <!-- Card Header -->
@@ -33,7 +33,11 @@
             
             <!-- Card Body -->
             <div class="p-6 space-y-4">
-                <form method="post" action="<c:url value='/citizen/report/new'/>" class="space-y-4">
+                <form method="post" 
+                      action="<c:url value='/citizen/report/new'/>" 
+                      enctype="multipart/form-data" 
+                      class="space-y-4">
+                    
                     <input type="hidden" name="citizenContactId" value="${citizenContactId}"/>
 
                     <!-- Location -->
@@ -57,14 +61,23 @@
                                   class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-teal-600 focus:outline-none"></textarea>
                     </div>
 
-                    <!-- Submit Button -->
+                    <!-- Image Upload -->
+                    <div>
+                        <label class="block font-medium text-gray-700 mb-1">Upload Image (optional)</label>
+                        <!-- FIX: name should match controller param -->
+                        <input type="file" name="reportImageFile" accept="image/*"
+                               class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-teal-600 focus:outline-none"/>
+                        <p class="text-xs text-gray-500 mt-1">Supported formats: JPG, PNG. Max size: 5MB.</p>
+                    </div>
+
+                    <!-- Submit -->
                     <button type="submit" 
                             class="w-full bg-teal-700 hover:bg-teal-800 text-white font-medium py-2 rounded-lg transition">
                         Submit Report
                     </button>
                 </form>
 
-                <!-- Back to Home -->
+                <!-- Back -->
                 <div class="text-center mt-4">
                     <a href="<c:url value='/'/>" class="text-teal-700 font-medium hover:underline">
                         🏠 Back to Home
@@ -74,7 +87,7 @@
         </div>
     </div>
 
-    <!-- Tailwind Footer -->
+    <!-- Footer -->
     <footer class="bg-gray-100 text-center py-6 mt-12">
         <p class="text-gray-600 text-sm">
             © 2024 CleanAir Pollution Reporting System. All rights reserved.
